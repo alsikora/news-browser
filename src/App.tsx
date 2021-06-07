@@ -1,26 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Switch, Route, Redirect, NavLink} from 'react-router-dom';
+import News from './components/News'
+import Search from './components/Search'
+import NewsDetails from './components/NewsDetails'
+import Categories from './components/Categories'
+import NotFound from './components/NotFound'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    return (
+        <Router>
+            <div className="ui container">
+                <div className="ui top attached menu">
+                    <NavLink to="/news" className="item" activeClassName="active">Top News</NavLink>
+                    <NavLink to="/categories" className="item">Categories</NavLink>
+                    <NavLink to="/search" className="item">Search</NavLink>
+                </div>
+
+                <Switch>
+                    <Redirect exact from="/" to="/news"/>
+                    <Route exact path="/news">
+                        <News/>
+                    </Route>
+                    <Route path="/news/:id">
+                        <NewsDetails/>
+                    </Route>
+                    <Route path="/categories">
+                        <Categories/>
+                    </Route>
+                    <Route path="/search">
+                        <Search/>
+                    </Route>
+                    <Route path="/*">
+                        <NotFound/>
+                    </Route>
+                </Switch>
+            </div>
+        </Router>
+    );
 }
-
-export default App;
