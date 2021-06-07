@@ -15,25 +15,26 @@ export default function App() {
                     <NavLink to="/categories" className="item">Categories</NavLink>
                     <NavLink to="/search" className="item">Search</NavLink>
                 </div>
-
-                <Switch>
-                    <Redirect exact from="/" to="/news"/>
-                    <Route exact path="/news">
-                        <News/>
-                    </Route>
-                    <Route path="/news/:id">
-                        <NewsDetails/>
-                    </Route>
-                    <Route path="/categories">
-                        <Categories/>
-                    </Route>
-                    <Route path="/search">
-                        <Search/>
-                    </Route>
-                    <Route path="/*">
-                        <NotFound/>
-                    </Route>
-                </Switch>
+                <div className="ui bottom attached segment">
+                    <Switch>
+                        <Redirect exact from="/" to="/news"/>
+                        <Route exact path="/news">
+                            <News/>
+                        </Route>
+                        <Route path="/news/:id">
+                            <NewsDetails/>
+                        </Route>
+                        <Route path="/categories">
+                            <Categories/>
+                        </Route>
+                        <Route path="/search">
+                            <Search/>
+                        </Route>
+                        <Route path="/*">
+                            <NotFound/>
+                        </Route>
+                    </Switch>
+                </div>
             </div>
         </Router>
     );
