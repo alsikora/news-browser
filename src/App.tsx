@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect, NavLink} from 'react-router-dom';
 import News from './components/News'
-import Search from './components/Search'
-import NewsDetails from './components/NewsDetails'
+import Search from './components/Search/Search'
+import NewsDetails from './components/NewsDetails/NewsDetails'
 import Categories from './components/Categories'
 import NotFound from './components/NotFound'
 import CountryNav from './components/CountryNav'
@@ -37,10 +37,14 @@ export default function App() {
                             <NewsDetails/>
                         </Route>
                         <Route path="/categories">
-                            <Categories/>
+                            <CountryContext.Provider value={country}>
+                                <Categories/>
+                            </CountryContext.Provider>
                         </Route>
                         <Route path="/search">
-                            <Search/>
+                            <CountryContext.Provider value={country}>
+                                <Search/>
+                            </CountryContext.Provider>
                         </Route>
                         <Route path="/*">
                             <NotFound/>

@@ -1,0 +1,21 @@
+.NewsList {
+  position: relative;
+  min-height: 300px;
+
+  &.ui.cards .card > .image {
+    height: 200px;
+
+    > img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+
+  .card .NewsList__img.image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    line-height: 1;
+  }
+}

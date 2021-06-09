@@ -7,6 +7,9 @@ const newsApi = axios.create({
     },
 });
 
-export const getTopNews = (countryCode: string) => newsApi.get('/', {
-    params: {country: countryCode}
+export const getTopNews = (countryCode: string, searchPhrase?: string) => newsApi.get('/', {
+    params: {
+        country: countryCode,
+        q: searchPhrase
+    }
 });

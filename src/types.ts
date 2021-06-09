@@ -13,7 +13,7 @@ export interface NewsDetailsState {
     title: string;
     urlToImage: string;
     content: string;
-    backLink: string;
+    backToPath?: string;
 }
 
 export interface Country {
