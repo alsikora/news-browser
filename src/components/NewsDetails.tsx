@@ -1,12 +1,9 @@
 import React from 'react'
-import {Link, useLocation} from "react-router-dom";
+import {Link, useLocation} from 'react-router-dom';
+import {NewsDetailsState} from '../types'
 
 interface LocationState {
-    state: {
-        title: string;
-        urlToImage: string;
-        content: string;
-    }
+    state: NewsDetailsState
 }
 
 const NewsDetails = () => {
@@ -16,10 +13,10 @@ const NewsDetails = () => {
     return (
         <>
             <h1 className="ui header">{title}</h1>
-            <img className="ui fluid image" src={urlToImage} alt="Article image"/>
+            <img className="ui fluid image" src={urlToImage} alt="Article promo"/>
             <p>{content}</p>
             <Link to={`/news`}>
-                <i className="left chevron icon"></i>
+                <i className="left chevron icon"/>
                 Back to list
             </Link>
         </>
