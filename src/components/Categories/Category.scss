@@ -1,0 +1,21 @@
+.Category {
+  &__wrapper {
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 4px;
+    padding: 24px;
+  }
+
+  &__title {
+    text-transform: capitalize;
+  }
+
+  &__carousel {
+    display: flex;
+    align-items: center;
+
+    .NewsList {
+      padding: 8px 8px 8px 4px;
+      width: 100%;
+    }
+  }
+}

@@ -13,3 +13,11 @@ export const getTopNews = (countryCode: string, searchPhrase?: string) => newsAp
         q: searchPhrase
     }
 });
+
+export const getTopNewsByCategory = (countryCode: string, category: string, maxNewsAmount?: number) => newsApi.get('/', {
+    params: {
+        country: countryCode,
+        category,
+        pageSize: maxNewsAmount
+    }
+});

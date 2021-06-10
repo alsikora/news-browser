@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Switch, Route, Redirect, NavLink} from 'react-r
 import News from './components/News'
 import Search from './components/Search/Search'
 import NewsDetails from './components/NewsDetails/NewsDetails'
-import Categories from './components/Categories'
+import Categories from './components/Categories/Categories'
+import CategoryTopNews from './components/Categories/CategoryTopNews'
 import NotFound from './components/NotFound'
 import CountryNav from './components/CountryNav'
 import {Country} from './types';
@@ -15,7 +16,7 @@ export default function App() {
     return (
         <Router>
             <div className="ui container">
-                <div className="ui top attached menu">
+                <div className="ui top attached menu" role="navigation" aria-label="Main navigation">
                     <NavLink to="/news" className="item" activeClassName="active">Top News</NavLink>
                     <NavLink to="/categories" className="item">Categories</NavLink>
                     <NavLink to="/search" className="item">Search</NavLink>
@@ -36,9 +37,14 @@ export default function App() {
                         <Route path="/news/:id">
                             <NewsDetails/>
                         </Route>
-                        <Route path="/categories">
+                        <Route exact path="/categories">
                             <CountryContext.Provider value={country}>
                                 <Categories/>
+                            </CountryContext.Provider>
+                        </Route>
+                        <Route path="/categories/:category">
+                            <CountryContext.Provider value={country}>
+                                <CategoryTopNews/>
                             </CountryContext.Provider>
                         </Route>
                         <Route path="/search">
