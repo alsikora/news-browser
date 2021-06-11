@@ -43,14 +43,14 @@ const Search = () => {
             <h1 className="ui header">Search top news from {country.name} by term:</h1>
             <div className="Search__container">
                 <div className="Search__input ui icon input">
-                    <i className="search icon"></i>
+                    <i className="search icon"/>
                     <input type="text"
                            placeholder="Search term..."
                            value={term}
                            onChange={(e) => setTerm(e.target.value)}/>
                 </div>
             </div>
-            {!results.length && !loading && term ? <p className="Search__no-result">No results found <i className="frown outline icon"></i></p> : null}
+            {!results.length && !loading && term ? <p className="Search__no-result">No results found <i className="frown outline icon"/></p> : null}
             <NewsList articles={results} backToPath='/search' loading={loading}/>
         </>
     )

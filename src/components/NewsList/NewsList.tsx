@@ -23,7 +23,7 @@ const NewsList: FC<NewsListProps> = ({articles, backToPath, loading = false}) =>
                     <div className="NewsList__img image">
                         {news.urlToImage ?
                             <img src={news.urlToImage} alt=""/> :
-                            <i className="image outline icon"/>
+                            <i className="image outline icon" role="presentation"/>
                         }
                     </div>
                     <div className="content">
