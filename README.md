@@ -26,3 +26,7 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.
 
+### `yarn test --watchAll`
+
+Runs all available tests.
+
